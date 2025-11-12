@@ -1,0 +1,57 @@
+# ==============================
+# GreenTrack Fullstack Project
+# ==============================
+
+# -------- GLOBAL --------
+.idea/
+.vscode/
+*.iml
+*.log
+.DS_Store
+Thumbs.db
+
+# -------- BACKEND (Spring Boot) --------
+/greentrack/target/
+/greentrack/.gradle/
+/greentrack/build/
+*.class
+*.jar
+*.war
+*.ear
+*.env
+
+# -------- FRONTEND (Angular) --------
+/greentrack-frontend/dist
+/greentrack-frontend/tmp
+/greentrack-frontend/out-tsc
+/greentrack-frontend/bazel-out
+/greentrack-frontend/node_modules
+/greentrack-frontend/npm-debug.log
+/greentrack-frontend/yarn-error.log
+/greentrack-frontend/.angular/cache
+/greentrack-frontend/.sass-cache
+/greentrack-frontend/connect.lock
+/greentrack-frontend/coverage
+/greentrack-frontend/libpeerconnection.log
+/greentrack-frontend/testem.log
+/greentrack-frontend/typings
+/greentrack-frontend/.history
+
+# -------- IDEs & Editors --------
+/greentrack-frontend/.idea
+/greentrack-frontend/.project
+/greentrack-frontend/.classpath
+/greentrack-frontend/.c9
+/greentrack-frontend/.settings
+/greentrack-frontend/*.launch
+/greentrack-frontend/*.sublime-workspace
+
+# -------- VSCode (keep important configs) --------
+/greentrack-frontend/.vscode/*
+!/greentrack-frontend/.vscode/settings.json
+!/greentrack-frontend/.vscode/tasks.json
+!/greentrack-frontend/.vscode/launch.json
+!/greentrack-frontend/.vscode/extensions.json
+
+# -------- DATABASE & TEMP --------
+/database/*.tmp
