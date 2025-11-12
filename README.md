@@ -55,6 +55,9 @@ mvn clean install
 mvn spring-boot:run
 4. El backend estará disponible en 👉 http://localhost:8090
 
+**⚠️ Nota Importante:**
+Para evitar errores de compilación o para que tu IDE (como IntelliJ IDEA, VS Code o Eclipse), debes asegurarte de tener el **plugin de Lombok** instalado en tu entorno de desarrollo.
+
 💡 3. Ejecución del Frontend (Angular)
 1. 📁 Abre una nueva terminal y navega a la carpeta /greentrack-frontend.
 
