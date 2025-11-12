@@ -36,35 +36,55 @@ Sigue estos pasos para levantar el proyecto localmente
 
 ### ⚙️ **2. Ejecución del Backend (Spring Boot)**
 
-📁 Navega a la carpeta `/greentrack` del proyecto.
+1. 📁 Navega a la carpeta `/greentrack` del proyecto.
 
-Verifica el archivo de configuración:
+2. Verifica el archivo de configuración:
 ```properties
 # src/main/resources/application.properties
+server.port=8090
 spring.datasource.url=jdbc:mysql://localhost:3306/greentrack
 spring.datasource.username=TU_USUARIO_MYSQL
 spring.datasource.password=TU_PASSWORD_MYSQL
 
-▶️ Compila y ejecuta el proyecto:
+3. ▶️ Compila y ejecuta el proyecto:
 
 # Instalar dependencias y compilar
 mvn clean install
 
 # Ejecutar la aplicación
 mvn spring-boot:run
-El backend estará disponible en 👉 http://localhost:8090
+4. El backend estará disponible en 👉 http://localhost:8090
 
 💡 3. Ejecución del Frontend (Angular)
-📁 Abre una nueva terminal y navega a la carpeta /greentrack-frontend.
+1. 📁 Abre una nueva terminal y navega a la carpeta /greentrack-frontend.
 
-Instala las dependencias:
+2. Instala las dependencias:
 
 npm install
-Inicia el servidor de desarrollo:
+
+3. Inicia el servidor de desarrollo:
 
 ng serve -o
-El frontend se abrirá automáticamente en tu navegador:
+
+4. El frontend se abrirá automáticamente en tu navegador:
 👉 http://localhost:4200/auth/login
+
+> ⚠️ **¡Importante!**
+> 
+> Si cambiaste el **puerto del backend** (ver paso 2.4), **debes actualizar** el archivo:
+> 
+> 📁 `/greentrack-frontend/src/environments/environment.ts`
+> 
+> para que apunte correctamente a la nueva API:
+> 
+> ```typescript
+> export const environment = {
+>   production: false,
+>   apiUrl: 'http://localhost:PUERTO_NUEVO/api' // 🔧 Asegúrate de que coincida con el backend
+> };
+> ```
+> 
+> 💡 *Esto garantiza que el frontend consuma las rutas correctas del backend al ejecutar el proyecto localmente.*
 
 🌎 URLs Disponibles
 Servicio	URL
