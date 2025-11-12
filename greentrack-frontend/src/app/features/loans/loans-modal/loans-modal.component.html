@@ -1,0 +1,93 @@
+<div
+  class="modal fade show d-block"
+  tabindex="-1"
+  style="background: rgba(0, 0, 0, 0.5)"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg border-0 rounded-3">
+      
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title fw-bold">
+          <i class="bi bi-box-arrow-up-right me-2"></i>
+          {{ title }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          (click)="close()"
+        ></button>
+      </div>
+
+      <div class="modal-body p-4">
+        <form [formGroup]="loanForm">
+          
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="employee"
+              placeholder="Nombre del Empleado"
+              formControlName="employee"
+              [ngClass]="{'is-invalid': loanForm.get('employee')?.touched && loanForm.get('employee')?.invalid}"
+            />
+            <label for="employee">Nombre del Empleado</label>
+          </div>
+
+          <div class="form-floating mb-3" formGroupName="equipment">
+            <select
+              class="form-select"
+              id="equipment"
+              formControlName="id"
+              [ngClass]="{'is-invalid': loanForm.get('equipment.id')?.touched && loanForm.get('equipment.id')?.invalid}"
+            >
+              <option [ngValue]="null" disabled>Seleccione un equipo...</option>
+              
+              <option *ngFor="let eq of availableEquipment" [ngValue]="eq.id">
+                {{ eq.name }}
+              </option>
+            </select>
+            <label for="equipment">Equipo a prestar</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="datetime-local"
+              class="form-control"
+              id="returnDate"
+              placeholder="Fecha de Devolución"
+              formControlName="returnDate"
+              [ngClass]="{'is-invalid': loanForm.get('returnDate')?.touched && loanForm.get('returnDate')?.invalid}"
+            />
+            <label for="returnDate">Fecha de Devolución (Esperada)</label>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer border-top-0 d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-secondary" (click)="close()">
+          <i class="bi bi-x-lg me-1"></i>
+          Cancelar
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="save()"
+          [disabled]="isSubmitting || loanForm.invalid"
+        >
+          <span
+            *ngIf="isSubmitting"
+            class="spinner-border spinner-border-sm me-1"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          <i *ngIf="!isSubmitting" class="bi bi-check-lg me-1"></i>
+          
+          {{ isSubmitting ? 'Guardando...' : 'Guardar' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

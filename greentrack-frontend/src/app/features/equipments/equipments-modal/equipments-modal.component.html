@@ -1,0 +1,106 @@
+<div
+  class="modal fade show d-block"
+  tabindex="-1"
+  role="dialog"
+  style="background: rgba(0, 0, 0, 0.5)"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg border-0 rounded-3">
+      
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title fw-bold">
+          <i class="bi bi-box-seam-fill me-2"></i>
+          {{ title }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          aria-label="Close"
+          (click)="close()"
+        ></button>
+      </div>
+
+      <div class="modal-body p-4">
+        <form [formGroup]="equipmentForm">
+          
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Nombre"
+              formControlName="name"
+              [ngClass]="{'is-invalid': equipmentForm.get('name')?.touched && equipmentForm.get('name')?.invalid}"
+            />
+            <label for="name">Nombre</label>
+            </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="brand"
+              placeholder="Marca"
+              formControlName="brand"
+              [ngClass]="{'is-invalid': equipmentForm.get('brand')?.touched && equipmentForm.get('brand')?.invalid}"
+            />
+            <label for="brand">Marca</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select
+              class="form-select"
+              id="type"
+              formControlName="type"
+              [ngClass]="{'is-invalid': equipmentForm.get('type')?.touched && equipmentForm.get('type')?.invalid}"
+            >
+              <option value="">Seleccione tipo</option>
+              <option value="LAPTOP">Laptop</option>
+              <option value="MONITOR">Monitor</option>
+              <option value="TECLADO">Teclado</option>
+              <option value="MOUSE">Mouse</option>
+              <option value="IMPRESORA">Impresora</option>
+            </select>
+            <label for="type">Tipo</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select
+              class="form-select"
+              id="state"
+              formControlName="state"
+              [ngClass]="{'is-invalid': equipmentForm.get('state')?.touched && equipmentForm.get('state')?.invalid}"
+            >
+              <option value="DISPONIBLE">Disponible</option>
+              <option value="PRESTADO">Prestado</option>
+            </select>
+            <label for="state">Estado</label>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer border-top-0 d-flex justify-content-between">
+        <button class="btn btn-outline-secondary" (click)="close()">
+          <i class="bi bi-x-lg me-1"></i>
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="save()"
+          [disabled]="isSubmitting || equipmentForm.invalid"
+        >
+          <span
+            *ngIf="isSubmitting"
+            class="spinner-border spinner-border-sm me-1"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          <i *ngIf="!isSubmitting" class="bi bi-check-lg me-1"></i>
+          
+          {{ isSubmitting ? 'Guardando...' : 'Guardar' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
