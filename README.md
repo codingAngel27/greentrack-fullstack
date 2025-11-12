@@ -44,6 +44,7 @@ Verifica el archivo de configuración:
 spring.datasource.url=jdbc:mysql://localhost:3306/greentrack
 spring.datasource.username=TU_USUARIO_MYSQL
 spring.datasource.password=TU_PASSWORD_MYSQL
+
 ▶️ Compila y ejecuta el proyecto:
 
 # Instalar dependencias y compilar
