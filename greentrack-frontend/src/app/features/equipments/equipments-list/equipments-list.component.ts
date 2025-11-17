@@ -91,6 +91,7 @@ export class EquipmentListComponent implements OnInit {
 */
   openCreateModal(): void {
     this.selectedEquipment = null;
+    this.isModalOpen = true;
   }
   /*
 * Abre el modal de edición con el equipo seleccionado.
