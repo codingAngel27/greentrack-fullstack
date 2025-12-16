@@ -116,7 +116,6 @@ Explora y prueba todos los endpoints de la API de forma interactiva:
 📦 CRUD de Préstamos
 
 🧠 Notas Finales
-🧩 Proyecto creado para fines de prueba técnica
 
 🔒 No incluye datos sensibles ni llaves privadas
 
